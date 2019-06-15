@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Acceso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating" color="primary">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="email" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitted)" lines="none">
+        <ion-text color="danger" class="form-error">
+          Email invalido
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">Contraseña <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="password" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid" expand="block">Entrar</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="signUp()" expand="block" color="light">Registrarse</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
