@@ -6,7 +6,7 @@
 
 <ion-content>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="logIn()">
     <ion-list>
       <ion-item>
         <ion-label position="floating" color="primary">E-Mail <ion-text color="danger">*</ion-text></ion-label>
@@ -21,7 +21,7 @@
 
       <ion-item>
         <ion-label position="floating" color="primary">Contraseña <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required formControlName="password" type="text"></ion-input>
+        <ion-input required formControlName="password" type="password"></ion-input>
       </ion-item>
     </ion-list>
 
@@ -33,5 +33,7 @@
         <ion-button (click)="signUp()" expand="block" color="light">Registrarse</ion-button>
       </ion-col>
     </ion-row>
+
+    
   </form>
 </ion-content>
