@@ -12,11 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import firebaseConfig from './common/firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SideMenuPage } from './side-menu/side-menu.page';
 
 @NgModule({
   declarations: [
-    AppComponent
-
+    AppComponent,
+    SideMenuPage
   ],
   entryComponents: [],
   imports: [

@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl('', Validators.compose([ Validators.pattern(regexValidators.email), Validators.required])),
-    password: new FormControl()
+    password: new FormControl('', Validators.compose( [Validators.minLength(6), Validators.required] ))
   });
   
   constructor(private router: Router, private afAuth: AngularFireAuth) {  }
@@ -24,8 +24,10 @@ export class LoginPage implements OnInit {
 
   public async logIn(){
     try{
-      const res = this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.get('email').value, this.loginForm.get('password').value);
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.get('email').value, this.loginForm.get('password').value);
+      this.router.navigateByUrl('/home');
     }catch(err){
+      console.log(err.code);
       console.dir(err);
     }
   }
